@@ -1,6 +1,6 @@
 import "./App.css";
 import Footer from "./components/Footer";
-import SearchForm from "./components/SearchForm";
+import Main from "./components/Main";
 
 export default function App() {
   return (
@@ -10,9 +10,7 @@ export default function App() {
         <h4>Good Morning!</h4>
         <h4>Sunday, Mar 2, 9:05 AM</h4>
       </header>
-      <main>
-        <SearchForm />
-      </main>
+      <Main />
       <Footer />
     </div>
   );

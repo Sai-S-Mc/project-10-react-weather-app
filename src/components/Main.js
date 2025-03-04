@@ -1,11 +1,11 @@
 import React from "react";
-import "./SearchForm.css";
+import "./Main.css";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
 
-export default function SearchForm() {
+export default function Main() {
   return (
-    <div className="SearchForm">
+    <div className="Main">
       <form>
         <input
           type="search"
