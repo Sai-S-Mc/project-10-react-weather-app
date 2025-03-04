@@ -3,7 +3,7 @@ form {
   justify-content: center;
   max-width: 600px;
   margin: 0 auto;
-  padding: var(--section-padding);
+  padding: 30px 20px;
 }
 
 .search-box,

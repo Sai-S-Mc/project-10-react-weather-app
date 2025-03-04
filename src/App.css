@@ -15,17 +15,12 @@
 }
 
 header,
-main,
 footer {
   padding: var(--section-padding);
 }
 
 header {
   background-color: var(--primary-color);
-}
-
-main {
-  background-color: var(--secondary-color);
 }
 
 h1{
@@ -36,4 +31,9 @@ h4 {
   margin: 10px auto;
   color: var(--secondary-text);
 }
+
+main {
+  background-color: var(--secondary-color);
+}
+
 
