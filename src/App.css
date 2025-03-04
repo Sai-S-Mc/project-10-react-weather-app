@@ -15,11 +15,11 @@
 }
 
 header,
-footer {
+.Footer {
   padding: var(--section-padding);
 }
 
-header {
+header, .Footer {
   background-color: var(--primary-color);
 }
 
@@ -32,7 +32,7 @@ h4 {
   color: var(--secondary-text);
 }
 
-main {
+.Main {
   background-color: var(--secondary-color);
 }
 
