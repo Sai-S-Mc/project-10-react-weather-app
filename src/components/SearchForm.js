@@ -1,5 +1,7 @@
 import React from "react";
 import "./SearchForm.css";
+import CurrentWeather from "./CurrentWeather";
+import Forecast from "./Forecast";
 
 export default function SearchForm() {
   return (
@@ -14,6 +16,8 @@ export default function SearchForm() {
           <input type="submit" value="Search" className="submit-button" />
         </span>
       </form>
+      <CurrentWeather />
+      <Forecast />
     </div>
   );
 }
