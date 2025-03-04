@@ -1,4 +1,5 @@
 import "./App.css";
+import Footer from "./components/Footer";
 import SearchForm from "./components/SearchForm";
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
       <main>
         <SearchForm />
       </main>
-      <footer></footer>
+      <Footer />
     </div>
-  )
+  );
 }
