@@ -1,5 +1,9 @@
 import React from "react";
 
 export default function Forecast(){
-    return <p>Forecast</p>
+    return (
+      <div className="Forecast">
+        <p>Forecast</p>
+      </div>
+    );
 }
