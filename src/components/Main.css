@@ -42,3 +42,16 @@ form {
   background-color: white;
   color: var(--secondary-text);
 }
+
+.CurrentWeather,
+.Forecast {
+  padding: var(--section-padding);
+}
+
+.CurrentWeather {
+  background-color: var(--primary-color);
+}
+
+.Forecast {
+  background-color: var(--secondary-color);
+}
