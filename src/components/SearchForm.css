@@ -37,9 +37,6 @@ form {
 
 .btn-wrapper:hover > .submit-button {
   transform: rotateX(360deg);
-}
-
-.submit-button:hover {
   cursor: pointer;
   outline: 1px solid var(--bg-color);
   background-color: white;
