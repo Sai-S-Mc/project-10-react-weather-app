@@ -32,7 +32,11 @@ form {
 .submit-button {
   background-color: var(--bg-color);
   color: white;
-  transition: all ease-in-out 300ms;
+  transition: all ease-in-out 400ms;
+}
+
+.btn-wrapper:hover > .submit-button {
+  transform: rotateX(360deg);
 }
 
 .submit-button:hover {

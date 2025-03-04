@@ -10,7 +10,9 @@ export default function SearchForm() {
           placeholder="Enter a city name"
           className="search-box"
         />
-        <input type="submit" value="Search" className="submit-button" />
+        <span className="btn-wrapper">
+          <input type="submit" value="Search" className="submit-button" />
+        </span>
       </form>
     </div>
   );
