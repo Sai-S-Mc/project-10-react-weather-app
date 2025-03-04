@@ -1,0 +1,43 @@
+form {
+  display: flex;
+  justify-content: center;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: var(--section-padding);
+}
+
+.search-box,
+.submit-button {
+  background-color: var(--primary-color);
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+}
+
+.search-box {
+  margin-right: 5px;
+  width: 100%;
+  color: var(--secondary-text);
+}
+
+.search-box::placeholder {
+  color: var(--secondary-text);
+  opacity: 0.85;
+}
+
+.search-box:focus {
+  outline: 1px solid var(--bg-color);
+}
+
+.submit-button {
+  background-color: var(--bg-color);
+  color: white;
+  transition: all ease-in-out 300ms;
+}
+
+.submit-button:hover {
+  cursor: pointer;
+  outline: 1px solid var(--bg-color);
+  background-color: white;
+  color: var(--secondary-text);
+}

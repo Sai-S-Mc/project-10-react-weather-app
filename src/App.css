@@ -1,4 +1,39 @@
+:root {
+  --bg-color : #6090e7;
+  --primary-color: #d7e3f9;
+  --secondary-color: white;
+  --primary-text: #282828f7;
+  --secondary-text: #6090e7;
+  --muted-text: #000000b3;
+  --section-padding: 15px 20px;
+}
+
 .App {
   text-align: center;
+  margin: 60px auto;
+  max-width: 1200px;
+}
+
+header,
+main,
+footer {
+  padding: var(--section-padding);
+}
+
+header {
   background-color: var(--primary-color);
 }
+
+main {
+  background-color: var(--secondary-color);
+}
+
+h1{
+color: var(--primary-text);
+}
+
+h4 {
+  margin: 10px auto;
+  color: var(--secondary-text);
+}
+
