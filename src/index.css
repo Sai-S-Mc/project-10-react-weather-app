@@ -7,7 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(#608fe7af, #608fe7af), url("../media/bg-photo.jpg");
   background-position: center;
-  background-size: fill;
 }
 
 code {

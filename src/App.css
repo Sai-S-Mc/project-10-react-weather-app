@@ -22,31 +22,41 @@
 }
 
 .App {
-  text-align: center;
   margin: 60px auto;
   max-width: 1200px;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.255);
+  border-radius: 15px;
 }
 
-.gradient{
+.gradient {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 header,
 .Footer {
+  text-align: center;
   padding: var(--section-padding);
+  background: linear-gradient(
+    rgba(215, 227, 249, 0.75),
+    rgba(215, 227, 249, 0.75)
+    ),
+    url("../media/header-footer-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  header {
+    border-radius: 15px 15px 0 0;
+  }
+  
+  .Footer {
+    border-radius: 0 0 15px 15px;
 }
 
-header,
-.Footer {
-   background: linear-gradient(rgba(215, 227, 249, 0.75), rgba(215, 227, 249, 0.75)), url("../media/header-footer-bg.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-}
-
-h1, h4 {
+h1,
+h4 {
   background: var(--primary-gradient);
- 
 }
 
 h4 {
