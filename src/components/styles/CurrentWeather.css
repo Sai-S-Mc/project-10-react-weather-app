@@ -1,0 +1,55 @@
+.CurrentWeather {
+  display: flex;
+  justify-content: space-around;
+  padding: 30px;
+  color: var(--muted-text);
+}
+
+.left-float{
+    padding: 0 10px;
+}
+
+.temperature-wrapper {
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.icon {
+  font-size: 32px;
+  position: relative;
+  top: -12px;
+}
+
+.temperature {
+  font-weight: bold;
+  font-size: 75px;
+  color: var(--primary-text);
+}
+
+.unit {
+  position: relative;
+  top: -30px;
+}
+
+.feels-like {
+  text-align: center;
+}
+
+.location {
+  color: var(--primary-text);
+  font-weight: bold;
+  font-size: 35px;
+  margin: 10px 0;
+}
+
+ul {
+  margin: 0;
+  padding:32px 25px;
+  display: flex;
+  flex-direction: column;
+}
+
+li {
+  list-style: none;
+  line-height: 1.7;
+}
