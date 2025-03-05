@@ -5,8 +5,8 @@
   color: var(--muted-text);
 }
 
-.left-float{
-    padding: 0 10px;
+.left-float {
+  padding: 0 10px;
 }
 
 .temperature-wrapper {
@@ -28,7 +28,12 @@
 
 .unit {
   position: relative;
-  top: -30px;
+  top: -40px;
+  font-weight: 500;
+}
+
+.CurrentWeather a {
+  color: #208DE5;
 }
 
 .feels-like {
@@ -44,7 +49,7 @@
 
 ul {
   margin: 0;
-  padding:32px 25px;
+  padding: 32px 25px;
   display: flex;
   flex-direction: column;
 }
@@ -52,4 +57,8 @@ ul {
 li {
   list-style: none;
   line-height: 1.7;
+}
+
+.blue-text {
+  color: var(--secondary-text);
 }
