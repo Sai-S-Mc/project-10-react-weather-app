@@ -6,7 +6,12 @@ export default function Footer() {
     <div className="Footer">
       <p>
         This weather project was coded by{" "}
-        <a href="https://github.com/Sai-S-Mc" target="_blank" rel="noreferrer">
+        <a
+          href="https://github.com/Sai-S-Mc"
+          target="_blank"
+          rel="noreferrer"
+          className="gradient"
+        >
           Sai Satti
         </a>
         , is open-sourced on{" "}
@@ -14,6 +19,7 @@ export default function Footer() {
           href="https://github.com/Sai-S-Mc/project-10-react-weather-app"
           target="_blank"
           rel="noreferrer"
+          className="gradient"
         >
           GitHub
         </a>
@@ -22,6 +28,7 @@ export default function Footer() {
           href="https://project-10-react-weather-app.netlify.app/"
           target="_blank"
           rel="noreferrer"
+          className="gradient"
         >
           Netlify
         </a>

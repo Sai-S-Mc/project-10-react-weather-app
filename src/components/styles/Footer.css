@@ -5,15 +5,12 @@ p {
 a {
   text-decoration: none;
   font-weight: bold;
-
   background: var(--primary-gradient);
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   transition: all ease-in-out 300ms;
 }
 
 a:hover {
- background: var(--secondary-gradient);
+  background: var(--secondary-gradient);
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }

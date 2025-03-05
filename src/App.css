@@ -1,10 +1,23 @@
 :root {
-  --bg-color : #6090e7;
+  --bg-color: #6090e7;
   --primary-color: #d7e3f9;
   --secondary-color: white;
   --primary-text: #282828f7;
   --secondary-text: #6090e7;
-  --muted-text: #000000b3;
+  --muted-text: #535353b3;
+  --primary-gradient: radial-gradient(
+    circle at 48.7% 44.3%,
+    rgb(30, 144, 231) 0%,
+    rgb(56, 113, 209) 22.9%,
+    rgb(38, 76, 140) 76.7%,
+    rgb(31, 63, 116) 100.2%
+  );
+  --secondary-gradient: linear-gradient(
+    109.6deg,
+    rgb(61, 121, 176) 12%,
+    rgb(35, 66, 164) 80%,
+    rgb(61, 121, 176) 12%
+  );
   --section-padding: 15px 20px;
 }
 
@@ -14,26 +27,30 @@
   max-width: 1200px;
 }
 
+.gradient{
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 header,
 .Footer {
   padding: var(--section-padding);
 }
 
-header, .Footer {
+header,
+.Footer {
   background-color: var(--primary-color);
 }
 
-h1{
-color: var(--primary-text);
+h1, h4 {
+  background: var(--primary-gradient);
+
 }
 
 h4 {
   margin: 10px auto;
-  color: var(--secondary-text);
 }
 
 .Main {
   background-color: var(--secondary-color);
 }
-
-
