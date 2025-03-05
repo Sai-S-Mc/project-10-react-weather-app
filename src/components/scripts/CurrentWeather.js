@@ -9,7 +9,7 @@ export default function CurrentWeather() {
           <span className="icon">🌥️</span>{" "}
           <span className="temperature">9</span>{" "}
           <span className="unit">
-            °C | <a href="">F</a>
+            °C | <a href="/">F</a>
           </span>
         </div>
         <div className="feels-like">
