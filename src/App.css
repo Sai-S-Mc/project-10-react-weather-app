@@ -4,7 +4,7 @@
   --secondary-color: white;
   --primary-text: #282828f7;
   --secondary-text: #6090e7;
-  --muted-text: #535353b3;
+  --muted-text: #616161;
   --primary-gradient: radial-gradient(
     circle at 48.7% 44.3%,
     rgb(30, 144, 231) 0%,
@@ -18,12 +18,11 @@
     rgb(35, 66, 164) 80%,
     rgb(61, 121, 176) 12%
   );
-  --section-padding: 15px 20px;
 }
 
 .App {
   margin: 60px auto;
-  max-width: 1200px;
+  max-width: 1000px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.255);
   border-radius: 15px;
 }
@@ -36,7 +35,7 @@
 header,
 .Footer {
   text-align: center;
-  padding: var(--section-padding);
+  padding: 15px 20px;
   background: linear-gradient(
     rgba(215, 227, 249, 0.75),
     rgba(215, 227, 249, 0.75)

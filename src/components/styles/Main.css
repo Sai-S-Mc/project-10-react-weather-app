@@ -49,11 +49,6 @@ form {
   color: var(--secondary-text);
 }
 
-.CurrentWeather,
-.Forecast {
-  padding: var(--section-padding);
-}
-
 .CurrentWeather {
   background-color: var(--primary-color);
 }
