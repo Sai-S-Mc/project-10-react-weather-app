@@ -2,14 +2,19 @@ p {
   color: var(--primary-text);
 }
 
-a {
+.Footer .gradient {
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.Footer a {
   text-decoration: none;
   font-weight: bold;
   background: var(--primary-gradient);
   transition: all ease-in-out 300ms;
 }
 
-a:hover {
+.Footer a:hover {
   background: var(--secondary-gradient);
   background-clip: text;
   -webkit-text-fill-color: transparent;
