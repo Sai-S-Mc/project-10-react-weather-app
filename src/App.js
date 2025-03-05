@@ -1,6 +1,6 @@
 import "./App.css";
-import Footer from "./components/Footer";
-import Main from "./components/Main";
+import Footer from "./components/scripts/Footer";
+import Main from "./components/scripts/Main";
 
 export default function App() {
   return (
