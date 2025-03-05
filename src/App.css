@@ -39,12 +39,14 @@ header,
 
 header,
 .Footer {
-  background-color: var(--primary-color);
+   background: linear-gradient(rgba(215, 227, 249, 0.75), rgba(215, 227, 249, 0.75)), url("../media/header-footer-bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 h1, h4 {
   background: var(--primary-gradient);
-
+ 
 }
 
 h4 {
