@@ -1,8 +1,5 @@
 .Forecast {
   padding: 30px 20px;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  column-gap: 20px;
 }
 
 .daily-forecast {
@@ -13,6 +10,7 @@
   color: var(--primary-text);
   border-radius: 5px;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.066);
+  margin-bottom: 40px;
 }
 
 .daily-high-low{
