@@ -1,12 +1,20 @@
 import React from "react";
 import "../styles/CurrentWeather.css";
+import ReactAnimatedWeather from "react-animated-weather";
 
 export default function CurrentWeather() {
   return (
     <div className="CurrentWeather">
       <div className="left-float">
         <div className="temperature-wrapper">
-          <span className="icon">🌥️</span>{" "}
+          <span className="icon">
+            <ReactAnimatedWeather
+              icon={"CLEAR_DAY"}
+              color={"#6090E7"}
+              size={60}
+              animate={true}
+            />
+          </span>{" "}
           <span className="temperature">9</span>{" "}
           <span className="unit">
             °C | <a href="/">F</a>
