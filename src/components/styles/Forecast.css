@@ -1,0 +1,21 @@
+.Forecast {
+  padding: 30px 20px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 20px;
+}
+
+.daily-forecast {
+  text-align: center;
+  border-left: 1px solid var(--primary-color);
+  border-right: 1px solid var(--primary-color);
+  padding: 10px;
+  color: var(--primary-text);
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.066);
+}
+
+.daily-high-low{
+  display: flex;
+  justify-content: space-around;
+}
