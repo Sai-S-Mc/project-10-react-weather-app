@@ -2,7 +2,7 @@
   --bg-color: #6090e7;
   --primary-color: #d7e3f9;
   --secondary-color: white;
-  --primary-text: #282828f7;
+  --primary-text: rgba(40, 40, 40, 0.969);
   --secondary-text: #6090e7;
   --muted-text: #616161;
   --primary-gradient: radial-gradient(

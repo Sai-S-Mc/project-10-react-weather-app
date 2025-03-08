@@ -3,8 +3,8 @@ import "../styles/Footer.css";
 
 export default function Footer() {
   return (
-    <div className="Footer">
-      <p>
+    <div className="pt-4 pb-5 pe-2 ps-2 Footer">
+      <p className="m-0">
         This weather project was coded by{" "}
         <a
           href="https://github.com/Sai-S-Mc"

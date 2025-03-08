@@ -26,7 +26,7 @@ export default function CurrentWeather() {
         <div className="location">Toronto, Canada</div>
       </div>
       <div>
-        <ul>
+        <ul className="mb-0 ps-1rem">
           <li>Mostly Cloudy</li>
           <li>
             Humidity : <span className="blue-text">20%</span>
