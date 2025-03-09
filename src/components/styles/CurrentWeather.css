@@ -23,7 +23,7 @@
 
 .temperature {
   font-weight: bold;
-  font-size: 75px;
+  font-size: 65px;
   color: var(--primary-text);
 }
 
@@ -34,22 +34,18 @@
 }
 
 .CurrentWeather a {
-  color: #208DE5;
-}
-
-.feels-like {
-  text-align: center;
+  color: var(--secondary-text);
 }
 
 .location {
   color: var(--primary-text);
   font-weight: bold;
-  font-size: 35px;
+  font-size: 48px;
   margin: 10px 0;
 }
 
 ul {
-  padding: 32px 25px;
+  padding: 46px 25px;
   display: flex;
   flex-direction: column;
 }
@@ -59,6 +55,6 @@ li {
   line-height: 1.7;
 }
 
-.blue-text {
-  color: var(--secondary-text);
+.bluish-grey-text {
+  color: #667a8f;
 }
