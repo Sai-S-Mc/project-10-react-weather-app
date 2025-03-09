@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/CurrentWeather.css";
 import ReactAnimatedWeather from "react-animated-weather";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function CurrentWeather() {
+export default function CurrentWeather(props) {
   return (
     <div className="CurrentWeather">
+      
       <div className="left-float">
         <div className="temperature-wrapper">
           <span className="icon">
@@ -15,30 +17,30 @@ export default function CurrentWeather() {
               animate={true}
             />
           </span>{" "}
-          <span className="temperature">9</span>{" "}
+          <span className="temperature">{Math.round(props.weather.temperature)}</span>{" "}
           <span className="unit">
             °C | <a href="/">F</a>
           </span>
         </div>
-        <div className="feels-like">
-          Feels like : <span className="blue-text">0°C</span>
+        <div className="text-center">
+          Feels like : <span className="bluish-grey-text">{Math.round(props.weather.realFeel)}°C</span>
         </div>
-        <div className="location">Toronto, Canada</div>
+        <div className="text-center location">{props.weather.city}</div>
       </div>
       <div>
         <ul className="mb-0 ps-1rem">
-          <li>Mostly Cloudy</li>
+          <li className="text-capitalize">{props.weather.description}</li>
           <li>
-            Humidity : <span className="blue-text">20%</span>
+            Humidity : <span className="bluish-grey-text">{Math.round(props.weather.humidity)}%</span>
           </li>
           <li>
-            Wind:<span className="blue-text"> 5 km/h</span>
+            Wind:<span className="bluish-grey-text"> {Math.round(props.weather.windSpeed)} km/h</span>
           </li>
           <li>
-            Today's Low: <span className="blue-text">-1°C</span>{" "}
+            Today's Low: <span className="bluish-grey-text">-1°C</span>{" "}
           </li>
           <li>
-            Today's High: <span className="blue-text">10°C</span>
+            Today's High: <span className="bluish-grey-text">10°C</span>
           </li>
         </ul>
       </div>
