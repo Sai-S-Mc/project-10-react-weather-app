@@ -4,9 +4,9 @@ import ReactAnimatedWeather from "react-animated-weather";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function CurrentWeather(props) {
+  
   return (
     <div className="CurrentWeather">
-      
       <div className="left-float">
         <div className="temperature-wrapper">
           <span className="icon">
