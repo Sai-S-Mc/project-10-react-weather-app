@@ -1,23 +1,10 @@
-import React, {useState} from "react";
+import React from "react";
 import "../styles/Main.css";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
 import axios from 'axios';
 
-export default function Main() {
-  let [weatherData, setWeatherData]= useState({apiResponse : false});
-  function handleApiResponse(response){
-    console.log(response.data);
-    setWeatherData({
-      apiResponse : true,
-      city :response.data.city,
-      temperature : response.data.temperature.current,
-      realFeel : response.data.temperature.feels_like,
-      description : response.data.condition.description,
-      humidity : response.data.temperature.humidity,
-      windSpeed :response.data.wind.speed,
-    })
-  }
+export default function Main({weatherData, handleApiResponse}) {
 
   if(weatherData.apiResponse){
     return (
