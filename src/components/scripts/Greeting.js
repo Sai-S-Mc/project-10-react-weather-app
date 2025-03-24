@@ -50,7 +50,7 @@ export default function Greeting({ weatherData }) {
   let currentMinutes = date.getMinutes();
 
   let dateDisplay = `${day}, ${month} ${currentDate}, ${currentHour}:${
-    currentMinutes > 10 ? currentMinutes : "0"+currentMinutes
+    currentMinutes >= 10 ? currentMinutes : "0"+currentMinutes
   } ${amOrPm} `;
 
   return (
