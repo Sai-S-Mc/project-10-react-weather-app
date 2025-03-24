@@ -12,6 +12,7 @@ let [weatherData, setWeatherData]= useState({apiResponse : false});
     setWeatherData({
       apiResponse : true,
       city :response.data.city,
+      country : response.data.country,
       temperature : response.data.temperature.current,
       realFeel : response.data.temperature.feels_like,
       description : response.data.condition.description,

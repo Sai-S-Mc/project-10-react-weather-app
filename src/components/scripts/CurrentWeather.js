@@ -3,8 +3,7 @@ import "../styles/CurrentWeather.css";
 import ReactAnimatedWeather from "react-animated-weather";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function CurrentWeather({weather}) {
-  
+export default function CurrentWeather({ weather }) {
   return (
     <div className="CurrentWeather">
       <div className="left-float">
@@ -23,7 +22,13 @@ export default function CurrentWeather({weather}) {
           </span>
         </div>
         <div className="text-center">
-          Feels like : <span className="bluish-grey-text">{Math.round(weather.realFeel)}°C</span>
+          <div>
+            Feels like :{" "}
+            <span className="bluish-grey-text">
+              {Math.round(weather.realFeel)}°C
+            </span>
+          </div>
+          <div className="mt-3">{weather.country}</div>
         </div>
         <div className="text-center location">{weather.city}</div>
       </div>
@@ -31,10 +36,17 @@ export default function CurrentWeather({weather}) {
         <ul className="mb-0 ps-1rem">
           <li className="text-capitalize">{weather.description}</li>
           <li>
-            Humidity : <span className="bluish-grey-text">{Math.round(weather.humidity)}%</span>
+            Humidity :{" "}
+            <span className="bluish-grey-text">
+              {Math.round(weather.humidity)}%
+            </span>
           </li>
           <li>
-            Wind:<span className="bluish-grey-text"> {Math.round(weather.windSpeed)} km/h</span>
+            Wind:
+            <span className="bluish-grey-text">
+              {" "}
+              {Math.round(weather.windSpeed)} km/h
+            </span>
           </li>
           <li>
             Today's Low: <span className="bluish-grey-text">-1°C</span>{" "}

@@ -41,11 +41,11 @@
   color: var(--primary-text);
   font-weight: bold;
   font-size: 48px;
-  margin: 10px 0;
+  margin:0 0 10px ;
 }
 
 ul {
-  padding: 46px 25px;
+  padding: 58px 25px;
   display: flex;
   flex-direction: column;
 }
