@@ -24,23 +24,30 @@ export default function Main({ weatherData, handleApiResponse }) {
   }
 
   let form = (
-    <form onSubmit={handleSubmit}>
-      <div className="row">
-        <div className="col-sm-10 ps-1 pe-1">
-          <input
-            type="search"
-            placeholder="Enter a city name"
-            className="search-box"
-            onChange={captureUserInput}
-          />
+    <div className="search-wrapper">
+      <form className="pb-4" onSubmit={handleSubmit}>
+        <div className="row">
+          <div className="col-sm-10 ps-1 pe-1">
+            <input
+              type="search"
+              placeholder="Enter a city name"
+              className="search-box"
+              onChange={captureUserInput}
+            />
+          </div>
+          <div className="col-sm-2 ps-1 pe-1">
+            <span className="btn-wrapper">
+              <input type="submit" value="Search" className="submit-button" />
+            </span>
+          </div>
         </div>
-        <div className="col-sm-2 ps-1 pe-1">
-          <span className="btn-wrapper">
-            <input type="submit" value="Search" className="submit-button" />
-          </span>
-        </div>
+      </form>
+      <div className="text-center tip ">
+        Tip : When searching for lesser-known towns, enter the town followed by the
+        province/state and country, each separated by commas. For example,
+        Belleville, Ontario, Canada.
       </div>
-    </form>
+    </div>
   );
 
   if (weatherData.apiResponse) {

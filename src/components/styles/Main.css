@@ -1,7 +1,10 @@
+.search-wrapper {
+  padding: 30px 20px;
+}
+
 form {
   max-width: 600px;
   margin: 0 auto;
-  padding: 30px 20px;
 }
 
 .search-box,
@@ -30,7 +33,7 @@ form {
   background-color: var(--bg-color);
   color: white;
   transition: all ease-in-out 400ms;
-  width:100%;
+  width: 100%;
 }
 
 .btn-wrapper {
@@ -42,9 +45,20 @@ form {
   transform: rotateX(360deg);
   cursor: pointer;
   outline: 1px solid var(--bg-color);
-  background:linear-gradient(rgba(112, 150, 215, 0.4), rgb(255, 255, 255,0.8)70%,rgba(112, 150, 215, 0.4)) ,url("../../../media/bg-photo.jpg");
+  background: linear-gradient(
+      rgba(112, 150, 215, 0.4),
+      rgb(255, 255, 255, 0.8) 70%,
+      rgba(112, 150, 215, 0.4)
+    ),
+    url("../../../media/bg-photo.jpg");
   background-size: cover;
   color: var(--secondary-text);
+}
+
+.tip {
+  font-size: small;
+  font-style: italic;
+  color: var(--muted-text)
 }
 
 .CurrentWeather {
@@ -55,8 +69,8 @@ form {
   background-color: var(--secondary-color);
 }
 
-@media (max-width: 576px){
-  .submit-button{
+@media (max-width: 576px) {
+  .submit-button {
     width: 20%;
     display: block;
     margin: 10px auto 0;
