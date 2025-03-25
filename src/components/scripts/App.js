@@ -18,7 +18,8 @@ let [weatherData, setWeatherData]= useState({apiResponse : false});
       description : response.data.condition.description,
       humidity : response.data.temperature.humidity,
       windSpeed :response.data.wind.speed,
-      timestamp : response.data.time
+      timestamp : response.data.time,
+      icon : response.data.condition.icon
     })
   }
 

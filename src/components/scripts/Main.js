@@ -63,7 +63,7 @@ export default function Main({ weatherData, handleApiResponse }) {
     return (
       <div className="Main">
         {form}
-        <div>Loading weather for {city}</div>
+        <div className="text-center">Loading weather for {city}</div>
       </div>
     );
   }

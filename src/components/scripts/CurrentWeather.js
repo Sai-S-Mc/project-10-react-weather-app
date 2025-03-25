@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles/CurrentWeather.css";
-import ReactAnimatedWeather from "react-animated-weather";
+import CurrentWeatherIcon from "./CurrentWeatherIcon";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function CurrentWeather({ weather }) {
@@ -9,12 +9,8 @@ export default function CurrentWeather({ weather }) {
       <div className="left-float">
         <div className="temperature-wrapper">
           <span className="icon">
-            <ReactAnimatedWeather
-              icon={"CLEAR_DAY"}
-              color={"#6090E7"}
-              size={60}
-              animate={true}
-            />
+            <CurrentWeatherIcon iconName = {weather.icon}/>
+           
           </span>{" "}
           <span className="temperature">{Math.round(weather.temperature)}</span>{" "}
           <span className="unit">
