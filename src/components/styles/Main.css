@@ -46,11 +46,11 @@ form {
   cursor: pointer;
   outline: 1px solid var(--bg-color);
   background: linear-gradient(
-      rgba(112, 150, 215, 0.4),
-      rgb(255, 255, 255, 0.8) 70%,
-      rgba(112, 150, 215, 0.4)
+      rgb(96, 144, 231, 0.4),
+      rgba(255, 255, 255, 0.863) 70%,
+      rgb(96, 144, 231, 0.4)
     ),
-    url("../../../media/bg-photo.jpg");
+    url("../../../media/button-bg.jpg");
   background-size: cover;
   color: var(--secondary-text);
 }
@@ -58,10 +58,11 @@ form {
 .tip {
   font-size: small;
   font-style: italic;
-  color: var(--muted-text)
+  color: var(--muted-text);
 }
 
-.CurrentWeather, .loading {
+.CurrentWeather,
+.loading {
   background-color: var(--primary-color);
 }
 
