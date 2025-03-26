@@ -11,8 +11,6 @@ export default function Main({ weatherData, handleApiResponse }) {
     let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleApiResponse);
-
-    console.log("api called")
   }
 
   function handleSubmit(event) {
@@ -45,9 +43,9 @@ export default function Main({ weatherData, handleApiResponse }) {
         </div>
       </form>
       <div className="text-center tip ">
-        Tip : When searching for lesser-known towns, enter the town followed by the
-        province/state and country, each separated by commas. For example,
-        Belleville, Ontario, Canada.
+        Tip : When searching for namesake towns/cities, enter the town followed
+        by the province/state and country, each separated by commas. For
+        example, London, Ontario, Canada.
       </div>
     </div>
   );
