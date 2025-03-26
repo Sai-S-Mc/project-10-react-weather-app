@@ -61,7 +61,7 @@ form {
   color: var(--muted-text)
 }
 
-.CurrentWeather {
+.CurrentWeather, .loading {
   background-color: var(--primary-color);
 }
 

@@ -11,6 +11,8 @@ export default function Main({ weatherData, handleApiResponse }) {
     let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleApiResponse);
+
+    console.log("api called")
   }
 
   function handleSubmit(event) {
@@ -63,7 +65,7 @@ export default function Main({ weatherData, handleApiResponse }) {
     return (
       <div className="Main">
         {form}
-        <div className="text-center">Loading weather for {city}</div>
+        <div className="text-center pb-3 pt-3 loading">Loading weather for {city}</div>
       </div>
     );
   }
