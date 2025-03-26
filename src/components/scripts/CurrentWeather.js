@@ -46,6 +46,7 @@ export default function CurrentWeather({ weather }) {
 
   function showCelsius(event) {
     event.preventDefault();
+    
     setWeatherData(metric);
     setUnitElement(celsiusUnitTag);
   }
