@@ -1,7 +1,7 @@
 import React from "react";
 import ReactAnimatedWeather from "react-animated-weather";
 
-export default function CurrentWeatherIcon({ iconName }) {
+export default function WeatherIcon({ iconName }) {
 
   const iconData = {
     "clear-sky-day": "CLEAR_DAY",

@@ -33,7 +33,7 @@ export default function Greeting({ weatherData }) {
 
   let currentDate = date.getDate();
   let currentHour = date.getHours();
-  let amOrPm = currentHour >= 12 &&  currentHour < 24 ? "PM" : "AM";
+  let amOrPm = currentHour >= 12 && currentHour < 24 ? "PM" : "AM";
 
   let greeting;
   if (currentHour >= 5 && currentHour < 12) {
@@ -46,9 +46,9 @@ export default function Greeting({ weatherData }) {
     greeting = "Night";
   }
 
-currentHour === 12 || currentHour === 24
-  ? (currentHour = 12)
-  : (currentHour = currentHour % 12);
+  currentHour === 12 || currentHour === 24
+    ? (currentHour = 12)
+    : (currentHour = currentHour % 12);
 
   let currentMinutes = date.getMinutes();
 

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../styles/CurrentWeather.css";
-import CurrentWeatherIcon from "./CurrentWeatherIcon";
+import WeatherIcon from "./WeatherIcon";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function CurrentWeather({ weather }) {
@@ -40,7 +40,7 @@ export default function CurrentWeather({ weather }) {
       <div className="left-float">
         <div className="temperature-wrapper">
           <span className="icon">
-            <CurrentWeatherIcon iconName={weather.icon} />
+            <WeatherIcon iconName={weather.icon} />
           </span>{" "}
           <span className="temperature">
             {unit === "metric"
