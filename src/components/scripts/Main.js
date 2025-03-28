@@ -43,9 +43,9 @@ export default function Main({ weatherData, handleApiResponse }) {
         </div>
       </form>
       <div className="text-center tip ">
-        Tip : When searching for namesake towns or cities, enter the name followed
-        by the province/state, and the country, each separated by commas. For
-        example, London, Ontario, Canada.
+        Tip : When searching for namesake towns or cities, enter the name
+        followed by the province/state, and the country, each separated by
+        commas. For example, London, Ontario, Canada.
       </div>
     </div>
   );
@@ -55,7 +55,7 @@ export default function Main({ weatherData, handleApiResponse }) {
       <div className="Main">
         {form}
         <CurrentWeather weather={weatherData} />
-        <Forecast />
+        <Forecast city={city} />
       </div>
     );
   } else {
