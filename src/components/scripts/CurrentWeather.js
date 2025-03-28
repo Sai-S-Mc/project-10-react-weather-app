@@ -40,7 +40,7 @@ export default function CurrentWeather({ weather }) {
       <div className="left-float">
         <div className="temperature-wrapper">
           <span className="icon">
-            <WeatherIcon iconName={weather.icon} />
+            <WeatherIcon iconName={weather.icon} size = {60}/>
           </span>{" "}
           <span className="temperature">
             {unit === "metric"
