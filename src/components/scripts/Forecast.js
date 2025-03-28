@@ -5,31 +5,40 @@ import axios from "axios";
 import ForecastDay from "./ForecastDay";
 
 export default function Forecast({ city }) {
-  const [forecastData, setForecastData] = useState({ apiResponse: false });
-  
+  const [apiResponse, setApiResponse] = useState(false);
+  const [forecastData, setForecastData] = useState(null);
+
   function handleApiResponse(response) {
     console.log("handling api response");
     console.log(response.data);
-    setForecastData({
-      apiResponse: true,
-      maxTemperature: Math.round(response.data.daily[0].temperature.maximum),
-      minTemperature: Math.round(response.data.daily[0].temperature.minimum),
-      timestamp: response.data.daily[0].time,
-      icon: response.data.daily[0].condition.icon,
-    });
+    setApiResponse(true);
+
+    setForecastData(response.data.daily);
+
+    // setForecastData({
+    //   apiResponse: true,
+    //   maxTemperature: Math.round(response.data.daily[0].temperature.maximum),
+    //   minTemperature: Math.round(response.data.daily[0].temperature.minimum),
+    //   timestamp: response.data.daily[0].time,
+    //   icon: response.data.daily[0].condition.icon,
+    // });
   }
 
-  if (forecastData.apiResponse) {
-    console.log(forecastData.apiResponse);
+  if (apiResponse) {
+    console.log(forecastData);
     return (
       <div className="Forecast">
         <div className="row">
-          <ForecastDay forecastData={forecastData} />
+          {forecastData.map((forecastDay, index) => {
+            if (index > 0 && index < 6)
+              return (
+                <ForecastDay key={index} forecastDailyData={forecastDay} />
+              );
+          })}
         </div>
       </div>
     );
   } else {
-    console.log(forecastData.apiResponse);
     let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
     let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
     axios.get(apiUrl).then(handleApiResponse);

@@ -1,22 +1,25 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
 
-export default function ForecastDay({ forecastData }) {
+export default function ForecastDay({ forecastDailyData }) {
+  
+  let date = new Date(forecastDailyData.time * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let day = days[date.getDay()];
+  console.log(day);
 
-  let date = new Date(forecastData.timestamp * 1000);
-  console.log(date);
   return (
     <div className="col-md">
       <div className="daily-forecast">
-        Mon
+        {day}
         <br />
         <br />
-        <WeatherIcon iconName={forecastData.icon} size={50} />
+        <WeatherIcon iconName={forecastDailyData.condition.icon} size={50} />
         <br />
         <br />
         <div className="daily-high-low">
-          <strong>{forecastData.maxTemperature}° </strong>
-          {forecastData.minTemperature}°
+          <strong>{Math.round(forecastDailyData.temperature.maximum)}° </strong>
+          {Math.round(forecastDailyData.temperature.minimum)}°
         </div>
       </div>
     </div>
