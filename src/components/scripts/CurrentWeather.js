@@ -3,8 +3,10 @@ import "../styles/CurrentWeather.css";
 import WeatherIcon from "./WeatherIcon";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function CurrentWeather({ weather }) {
+export default function CurrentWeather({ weather, forecastTemp }) {
   const [unit, setUnit] = useState("metric");
+
+  console.log(forecastTemp);
 
   function showFahrenheit(event) {
     event.preventDefault();
@@ -40,7 +42,7 @@ export default function CurrentWeather({ weather }) {
       <div className="left-float">
         <div className="temperature-wrapper">
           <span className="icon">
-            <WeatherIcon iconName={weather.icon} size = {60}/>
+            <WeatherIcon iconName={weather.icon} size={60} />
           </span>{" "}
           <span className="temperature">
             {unit === "metric"
@@ -80,10 +82,20 @@ export default function CurrentWeather({ weather }) {
             </span>
           </li>
           <li>
-            Today's Low: <span className="bluish-grey-text">-1°C</span>{" "}
+            Today's Low:{" "}
+            <span className="bluish-grey-text">
+              {unit === "metric"
+                ? Math.round(forecastTemp.minimum) + " °C"
+                : Math.round((forecastTemp.minimum * 9) / 5 + 32) + " °F"}
+            </span>{" "}
           </li>
           <li>
-            Today's High: <span className="bluish-grey-text">10°C</span>
+            Today's High:{" "}
+            <span className="bluish-grey-text">
+              {unit === "metric"
+                ? Math.round(forecastTemp.maximum) + " °C"
+                : Math.round((forecastTemp.maximum * 9) / 5 + 32) + " °F"}
+            </span>
           </li>
         </ul>
       </div>
