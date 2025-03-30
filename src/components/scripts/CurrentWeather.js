@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "../styles/CurrentWeather.css";
 import WeatherIcon from "./WeatherIcon";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -10,6 +10,7 @@ export default function CurrentWeather({
   showCelsius,
   showFahrenheit,
 }) {
+
   let celsiusTag = (
     <span className="unit">
       °C | °

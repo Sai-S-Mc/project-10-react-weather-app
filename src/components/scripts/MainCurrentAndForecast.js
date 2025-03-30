@@ -37,10 +37,11 @@ export default function MainCurrentAndForecast({ city, weatherData }) {
             unit={unit}
             showCelsius={showCelsius}
             showFahrenheit={showFahrenheit}
-          />
+            />
           <Forecast
             forecastApiResponse={forecastApiResponse}
             forecastArray={forecastArray}
+            unit={unit}
           />
         </>
       );
