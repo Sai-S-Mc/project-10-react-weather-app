@@ -3,21 +3,13 @@ import "../styles/CurrentWeather.css";
 import WeatherIcon from "./WeatherIcon";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function CurrentWeather({ weather, forecastTemp }) {
-  const [unit, setUnit] = useState("metric");
-
-  console.log(forecastTemp);
-
-  function showFahrenheit(event) {
-    event.preventDefault();
-    setUnit("imperial");
-  }
-
-  function showCelsius(event) {
-    event.preventDefault();
-    setUnit("metric");
-  }
-
+export default function CurrentWeather({
+  weather,
+  forecastTemp,
+  unit,
+  showCelsius,
+  showFahrenheit,
+}) {
   let celsiusTag = (
     <span className="unit">
       °C | °

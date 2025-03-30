@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
 import axios from "axios";
@@ -7,6 +7,17 @@ export default function MainCurrentAndForecast({ city, weatherData }) {
   const [forecastApiResponse, setForecastApiResponse] = useState(false);
   const [forecastArray, setForecastArray] = useState(null);
   const [forecastTemp, setForecastTemp] = useState(null);
+  const [unit, setUnit] = useState("metric");
+
+  function showFahrenheit(event) {
+    event.preventDefault();
+    setUnit("imperial");
+  }
+
+  function showCelsius(event) {
+    event.preventDefault();
+    setUnit("metric");
+  }
 
   function handleForecastApiResponse(response) {
     console.log("handling api response");
@@ -20,7 +31,13 @@ export default function MainCurrentAndForecast({ city, weatherData }) {
     if (forecastApiResponse) {
       return (
         <>
-          <CurrentWeather weather={weatherData} forecastTemp={forecastTemp} />
+          <CurrentWeather
+            weather={weatherData}
+            forecastTemp={forecastTemp}
+            unit={unit}
+            showCelsius={showCelsius}
+            showFahrenheit={showFahrenheit}
+          />
           <Forecast
             forecastApiResponse={forecastApiResponse}
             forecastArray={forecastArray}
