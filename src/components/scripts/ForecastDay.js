@@ -8,23 +8,24 @@ export default function ForecastDay({ forecastDailyData, unit }) {
 
   function forecastDailyMax() {
     if (unit === "metric") {
-      let max = `${Math.round(forecastDailyData.temperature.maximum)} °C `;
+      let max = Math.round(forecastDailyData.temperature.maximum);
       return max;
     } else {
-      let max = `${Math.round(
+      let max = Math.round(
         (forecastDailyData.temperature.maximum * 9) / 5 + 32
-      )} °F `;
+      );
+
       return max;
     }
   }
   function forecastDailyMin() {
     if (unit === "metric") {
-      let min = `${Math.round(forecastDailyData.temperature.minimum)} °C `;
+      let min = Math.round(forecastDailyData.temperature.minimum);
       return min;
     } else {
-      let min = `${Math.round(
+      let min = Math.round(
         (forecastDailyData.temperature.minimum * 9) / 5 + 32
-      )} °F `;
+      );
       return min;
     }
   }
