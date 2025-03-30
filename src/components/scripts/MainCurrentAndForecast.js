@@ -6,7 +6,7 @@ import axios from "axios";
 export default function MainCurrentAndForecast({ weatherData }) {
   const [forecastApiResponse, setForecastApiResponse] = useState(false);
   const [forecastArray, setForecastArray] = useState(null);
-  const [forecastTemp, setForecastTemp] = useState(null);
+  const [forecastToday, setForecastToday] = useState(null);
   const [unit, setUnit] = useState("metric");
 
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function MainCurrentAndForecast({ weatherData }) {
     console.log(response.data);
     setForecastApiResponse(true);
     setForecastArray(response.data.daily);
-    setForecastTemp(response.data.daily[0].temperature);
+    setForecastToday(response.data.daily[0]);
   }
 
   if (forecastApiResponse) {
@@ -36,7 +36,7 @@ export default function MainCurrentAndForecast({ weatherData }) {
       <>
         <CurrentWeather
           weather={weatherData}
-          forecastTemp={forecastTemp}
+          forecastToday ={forecastToday}
           unit={unit}
           showCelsius={showCelsius}
           showFahrenheit={showFahrenheit}

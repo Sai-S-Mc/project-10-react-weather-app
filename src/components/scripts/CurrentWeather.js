@@ -5,11 +5,40 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function CurrentWeather({
   weather,
-  forecastTemp,
+  forecastToday,
   unit,
   showCelsius,
   showFahrenheit,
 }) {
+  let fullDate = new Date(forecastToday.time * 1000);
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[fullDate.getDay()];
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[fullDate.getMonth()];
+
+  let date = fullDate.getDate();
+  let dateDisplay = `${day}, ${month} ${date}`;
 
   let celsiusTag = (
     <span className="unit">
@@ -59,7 +88,10 @@ export default function CurrentWeather({
       </div>
       <div>
         <ul className="mb-0 ps-1rem">
-          <li className="text-capitalize">{weather.description}</li>
+          <li>
+            <em>{dateDisplay}</em>
+          </li>
+          <li className="pt-2 text-capitalize">{weather.description}</li>
           <li>
             Humidity :{" "}
             <span className="bluish-grey-text">
@@ -78,16 +110,18 @@ export default function CurrentWeather({
             Today's Low:{" "}
             <span className="bluish-grey-text">
               {unit === "metric"
-                ? Math.round(forecastTemp.minimum) + " °C"
-                : Math.round((forecastTemp.minimum * 9) / 5 + 32) + " °F"}
+                ? Math.round(forecastToday.temperature.minimum) + " °C"
+                : Math.round((forecastToday.temperature.minimum * 9) / 5 + 32) +
+                  " °F"}
             </span>{" "}
           </li>
           <li>
             Today's High:{" "}
             <span className="bluish-grey-text">
               {unit === "metric"
-                ? Math.round(forecastTemp.maximum) + " °C"
-                : Math.round((forecastTemp.maximum * 9) / 5 + 32) + " °F"}
+                ? Math.round(forecastToday.temperature.maximum) + " °C"
+                : Math.round((forecastToday.temperature.maximum * 9) / 5 + 32) +
+                  " °F"}
             </span>
           </li>
         </ul>
