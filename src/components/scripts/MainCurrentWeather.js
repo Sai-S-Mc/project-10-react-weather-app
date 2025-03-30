@@ -1,9 +1,9 @@
 import React from "react";
-import "../styles/CurrentWeather.css";
+import "../styles/MainCurrentWeather.css";
 import WeatherIcon from "./WeatherIcon";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-export default function CurrentWeather({
+export default function MainCurrentWeather({
   weather,
   forecastToday,
   unit,

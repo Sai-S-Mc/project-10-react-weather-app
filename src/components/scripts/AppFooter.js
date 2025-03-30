@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Footer.css";
+import "../styles/AppFooter.css";
 
-export default function Footer() {
+export default function AppFooter() {
   return (
     <div className="pt-4 pb-5 pe-2 ps-2 Footer">
       <p className="m-0">

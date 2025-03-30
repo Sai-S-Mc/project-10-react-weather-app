@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "../styles/Main.css";
+import "../styles/AppMain.css";
 import axios from "axios";
-import SearchForm from "./SearchForm";
+import MainSearchForm from "./MainSearchForm";
 import MainCurrentAndForecast from "./MainCurrentAndForecast";
 
-export default function Main({ weatherData, handleApiResponse }) {
+export default function AppMain({ weatherData, handleApiResponse }) {
   const [city, setCity] = useState("Iqaluit");
 
   function search() {
@@ -26,11 +26,11 @@ export default function Main({ weatherData, handleApiResponse }) {
   if (weatherData.apiResponse) {
     return (
       <div className="Main">
-        <SearchForm
+        <MainSearchForm
           captureUserInput={captureUserInput}
           handleSubmit={handleSubmit}
         />
-        <MainCurrentAndForecast weatherData= {weatherData} />
+        <MainCurrentAndForecast weatherData={weatherData} />
       </div>
     );
   } else {
@@ -38,7 +38,7 @@ export default function Main({ weatherData, handleApiResponse }) {
 
     return (
       <div className="Main">
-        <SearchForm
+        <MainSearchForm
           captureUserInput={captureUserInput}
           handleSubmit={handleSubmit}
         />

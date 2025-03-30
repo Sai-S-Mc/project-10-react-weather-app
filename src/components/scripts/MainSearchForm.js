@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SearchForm({ handleSubmit, captureUserInput }) {
+export default function MainSearchForm({ handleSubmit, captureUserInput }) {
   return (
     <div className="search-wrapper">
       <form className="pb-4" onSubmit={handleSubmit}>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import CurrentWeather from "./CurrentWeather";
-import Forecast from "./Forecast";
+import MainCurrentWeather from "./MainCurrentWeather";
+import MainForecast from "./MainForecast";
 import axios from "axios";
 
 export default function MainCurrentAndForecast({ weatherData }) {
@@ -34,14 +34,14 @@ export default function MainCurrentAndForecast({ weatherData }) {
     console.log("executing forecastApiResponse is true statement");
     return (
       <>
-        <CurrentWeather
+        <MainCurrentWeather
           weather={weatherData}
           forecastToday ={forecastToday}
           unit={unit}
           showCelsius={showCelsius}
           showFahrenheit={showFahrenheit}
         />
-        <Forecast
+        <MainForecast
           forecastApiResponse={forecastApiResponse}
           forecastArray={forecastArray}
           unit={unit}
