@@ -5,7 +5,6 @@ export default function ForecastDay({ forecastDailyData, unit }) {
   let date = new Date(forecastDailyData.time * 1000);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
-  console.log(day);
 
   function forecastDailyMax() {
     if (unit === "metric") {

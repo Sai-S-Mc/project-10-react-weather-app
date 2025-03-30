@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CurrentWeather from "./CurrentWeather";
 import Forecast from "./Forecast";
 import axios from "axios";
 
-export default function MainCurrentAndForecast({ city, weatherData }) {
+export default function MainCurrentAndForecast({ weatherData }) {
   const [forecastApiResponse, setForecastApiResponse] = useState(false);
   const [forecastArray, setForecastArray] = useState(null);
   const [forecastTemp, setForecastTemp] = useState(null);
   const [unit, setUnit] = useState("metric");
+
+  useEffect(() => {
+    setForecastApiResponse(false);
+  }, [weatherData.city]);
 
   function showFahrenheit(event) {
     event.preventDefault();
@@ -20,43 +24,40 @@ export default function MainCurrentAndForecast({ city, weatherData }) {
   }
 
   function handleForecastApiResponse(response) {
-    console.log("handling api response");
     console.log(response.data);
     setForecastApiResponse(true);
     setForecastArray(response.data.daily);
     setForecastTemp(response.data.daily[0].temperature);
   }
 
-  function forecastAPI() {
-    if (forecastApiResponse) {
-      return (
-        <>
-          <CurrentWeather
-            weather={weatherData}
-            forecastTemp={forecastTemp}
-            unit={unit}
-            showCelsius={showCelsius}
-            showFahrenheit={showFahrenheit}
-            />
-          <Forecast
-            forecastApiResponse={forecastApiResponse}
-            forecastArray={forecastArray}
-            unit={unit}
-          />
-        </>
-      );
-    } else {
-      let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
-      let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
-      axios.get(forecastApiUrl).then(handleForecastApiResponse);
+  if (forecastApiResponse) {
+    console.log("executing forecastApiResponse is true statement");
+    return (
+      <>
+        <CurrentWeather
+          weather={weatherData}
+          forecastTemp={forecastTemp}
+          unit={unit}
+          showCelsius={showCelsius}
+          showFahrenheit={showFahrenheit}
+        />
+        <Forecast
+          forecastApiResponse={forecastApiResponse}
+          forecastArray={forecastArray}
+          unit={unit}
+        />
+      </>
+    );
+  } else {
+    console.log("executing forecastApiResponse is false statement");
+    let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
+    let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${weatherData.city}&key=${apiKey}`;
+    axios.get(forecastApiUrl).then(handleForecastApiResponse);
 
-      return (
-        <div className="text-center Forecast">
-          Loading forecast for {city}...
-        </div>
-      );
-    }
+    return (
+      <div className="text-center Forecast">
+        Loading forecast for {weatherData.city}...
+      </div>
+    );
   }
-
-  return <> {forecastAPI()}</>;
 }

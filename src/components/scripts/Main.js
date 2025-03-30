@@ -30,7 +30,7 @@ export default function Main({ weatherData, handleApiResponse }) {
           captureUserInput={captureUserInput}
           handleSubmit={handleSubmit}
         />
-        <MainCurrentAndForecast city={city} weatherData= {weatherData} />
+        <MainCurrentAndForecast weatherData= {weatherData} />
       </div>
     );
   } else {

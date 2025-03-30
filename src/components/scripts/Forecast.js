@@ -5,7 +5,6 @@ import ForecastDay from "./ForecastDay";
 
 export default function Forecast({ forecastArray, forecastApiResponse, unit }) {
   if (forecastApiResponse) {
-    console.log(forecastArray);
     return (
       <div className="Forecast">
         <div className="row">
