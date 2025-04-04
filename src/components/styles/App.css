@@ -27,10 +27,20 @@ body {
 }
 
 .App {
+  font-family: "Open Sans", sans-serif;
   margin: 60px auto;
   max-width: 1000px;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.255);
   border-radius: 15px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Noto Sans Gunjala Gondi", sans-serif;
 }
 
 .gradient {
@@ -60,7 +70,7 @@ header {
 }
 
 h1,
-h6{
+h6 {
   background: var(--primary-gradient);
 }
 

@@ -69,11 +69,31 @@ form {
 .Forecast {
   background-color: var(--secondary-color);
 }
-
-@media (max-width: 576px) {
+@media (max-width: 700px) {
+  .search-box,
   .submit-button {
-    width: 20%;
+    font-size: 14px;
+  }
+}
+@media (max-width: 575.5px) {
+  .search-box,
+  .submit-button {
     display: block;
-    margin: 10px auto 0;
+    margin: auto;
+    text-align: center;
+  }
+  .search-box {
+    width: 85%;
+  }
+  .submit-button {
+    width: 80px;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 300px) {
+  .unit {
+    display: block;
+    margin-top: 30px;
   }
 }

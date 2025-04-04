@@ -61,7 +61,7 @@ export default function MainCurrentWeather({
 
   return (
     <div className="CurrentWeather">
-      <div className="left-float">
+      <div className="container-fluid left-float">
         <div className="temperature-wrapper">
           <span className="icon">
             <WeatherIcon iconName={weather.icon} size={60} />
@@ -82,12 +82,12 @@ export default function MainCurrentWeather({
                 : Math.round((weather.realFeel * 9) / 5 + 32) + " °F"}
             </span>
           </div>
-          <div className="mt-3">{weather.country}</div>
+          <div className="mt-3 country">{weather.country}</div>
         </div>
         <div className="text-center location">{weather.city}</div>
       </div>
-      <div>
-        <ul className="mb-0 ps-1rem">
+      <div className="container-fluid right-float">
+        <ul className="mb-0 p-3">
           <li>
             <em>{dateDisplay}</em>
           </li>

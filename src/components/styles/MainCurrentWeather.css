@@ -15,14 +15,13 @@
 }
 
 .icon {
-  font-size: 32px;
   position: relative;
-  bottom: -5px;
+  bottom: -10px;
 }
 
 .temperature {
   font-weight: bold;
-  font-size: 65px;
+  font-size: 55px;
   color: var(--primary-text);
 }
 
@@ -40,12 +39,16 @@
   color: var(--primary-text);
   font-weight: bold;
   font-size: 48px;
-  margin:0 0 10px ;
+  margin: 0 0 10px;
+}
+
+.right-float {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 ul {
-  padding: 40px 25px;
-  display: flex;
   flex-direction: column;
 }
 
@@ -56,4 +59,30 @@ li {
 
 .bluish-grey-text {
   color: #667a8f;
+}
+
+@media (max-width: 700px) {
+  .icon {
+    bottom: -13px;
+  }
+  .temperature {
+    font-size: 45px;
+  }
+  .unit {
+    top: -24px;
+    font-weight: normal;
+  }
+  .location {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 500px) {
+  .CurrentWeather {
+    flex-direction: column;
+  }
+  .right-float {
+    text-align: center;
+    margin-top: 30px;
+  }
 }
