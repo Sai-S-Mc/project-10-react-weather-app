@@ -43,7 +43,11 @@ export default function MainCurrentWeather({
   let celsiusTag = (
     <span className="unit">
       °C | °
-      <a href="/" onClick={showFahrenheit}>
+      <a
+        href="/"
+        title="Change to Imperial unit system (Fahrenheit, miles/h)"
+        onClick={showFahrenheit}
+      >
         F
       </a>
     </span>
@@ -52,7 +56,11 @@ export default function MainCurrentWeather({
   let fahrenheitTag = (
     <span className="unit">
       °
-      <a href="/" onClick={showCelsius}>
+      <a
+        href="/"
+        title="Change to Metric unit system (Celsius, km/h)"
+        onClick={showCelsius}
+      >
         C
       </a>{" "}
       | °F

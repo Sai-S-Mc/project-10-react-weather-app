@@ -10,6 +10,7 @@ export default function AppFooter() {
           href="https://github.com/Sai-S-Mc"
           target="_blank"
           rel="noreferrer"
+          title="Sai's GitHub Profile"
           className="gradient"
         >
           Sai Satti
@@ -19,8 +20,9 @@ export default function AppFooter() {
           href="https://github.com/Sai-S-Mc/project-10-react-weather-app"
           target="_blank"
           rel="noreferrer"
+          title="Sai's GitHub repository"
           className="gradient"
-        >
+          >
           GitHub
         </a>
         , and is hosted on{" "}
@@ -28,6 +30,7 @@ export default function AppFooter() {
           href="https://project-10-react-weather-app.netlify.app/"
           target="_blank"
           rel="noreferrer"
+          title="Sai's project on Netlify"
           className="gradient"
         >
           Netlify
