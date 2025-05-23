@@ -31,7 +31,7 @@
   font-weight: 500;
 }
 
-.CurrentWeather a {
+.blue-text {
   color: var(--secondary-text);
 }
 
