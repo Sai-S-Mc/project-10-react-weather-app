@@ -5,7 +5,7 @@ import MainSearchForm from "./MainSearchForm";
 import MainCurrentAndForecast from "./MainCurrentAndForecast";
 
 export default function AppMain({ weatherData, handleApiResponse }) {
-  const [city, setCity] = useState("Iqaluit");
+  const [city, setCity] = useState("Victoria");
 
   function search() {
     let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
