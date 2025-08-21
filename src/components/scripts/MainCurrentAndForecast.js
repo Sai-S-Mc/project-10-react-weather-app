@@ -31,7 +31,6 @@ export default function MainCurrentAndForecast({ weatherData }) {
   }
 
   if (forecastApiResponse) {
-    console.log("executing forecastApiResponse is true statement");
     return (
       <>
         <MainCurrentWeather
@@ -49,7 +48,6 @@ export default function MainCurrentAndForecast({ weatherData }) {
       </>
     );
   } else {
-    console.log("executing forecastApiResponse is false statement");
     let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
     let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${weatherData.city}&key=${apiKey}`;
     axios.get(forecastApiUrl).then(handleForecastApiResponse);

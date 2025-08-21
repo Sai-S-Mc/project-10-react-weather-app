@@ -3,7 +3,7 @@ import "../styles/AppFooter.css";
 
 export default function AppFooter() {
   return (
-    <div className="pt-4 pb-5 pe-2 ps-2 Footer">
+    <div className="pt-5 pb-5 pe-2 ps-2 Footer">
       <p className="m-0">
         This weather project was coded by{" "}
         <a
@@ -22,7 +22,7 @@ export default function AppFooter() {
           rel="noreferrer"
           title="Sai's GitHub repository"
           className="gradient"
-          >
+        >
           GitHub
         </a>
         , and is hosted on{" "}
@@ -35,7 +35,9 @@ export default function AppFooter() {
         >
           Netlify
         </a>
-        .
+      </p>
+      <p class="mb-0 pt-4 copyright">
+        Copyright ©2025 Sai Satti. All rights reserved.
       </p>
     </div>
   );
