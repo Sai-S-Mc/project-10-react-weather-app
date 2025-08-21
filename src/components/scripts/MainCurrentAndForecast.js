@@ -54,7 +54,10 @@ export default function MainCurrentAndForecast({ weatherData }) {
 
     return (
       <div className="text-center Forecast">
+        <div className="text-center pb-3 pt-3 loading">
         Loading forecast for {weatherData.city}...
+        </div>
+        <br />
       </div>
     );
   }
