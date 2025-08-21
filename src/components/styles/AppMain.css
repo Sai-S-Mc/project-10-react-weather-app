@@ -62,13 +62,35 @@ form {
 }
 
 .CurrentWeather,
-.loading {
+.loading,
+.error-message {
   background-color: var(--primary-color);
+}
+
+.error-message p,
+.error-message button {
+  font-size: 14px;
+}
+
+.error-message p {
+  color: var(--muted-text);
+}
+
+.error-message button {
+  border: 1px solid var(--bg-color);
+  color: var(--secondary-text);
+  background-color: var(--secondary-color);
+}
+
+.error-message button:hover {
+  color: white;
+  background-color: var(--bg-color);
 }
 
 .Forecast {
   background-color: var(--secondary-color);
 }
+
 @media (max-width: 700px) {
   .search-box,
   .submit-button {

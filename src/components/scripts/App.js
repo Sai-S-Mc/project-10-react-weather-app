@@ -6,8 +6,14 @@ import AppGreeting from "./AppGreeting";
 
 export default function App() {
   let [weatherData, setWeatherData] = useState({ apiResponse: false });
+  let [errorStatus, setErrorStatus] = useState(false);
 
   function handleApiResponse(response) {
+    if (response.data.message) {
+      setErrorStatus(true);
+      return;
+    }
+
     console.log(response.data);
     setWeatherData({
       apiResponse: true,
@@ -23,17 +29,23 @@ export default function App() {
     });
   }
 
+  function updateErrorStatus() {
+    setErrorStatus(false);
+  }
+
   return (
     <div className="App">
       <header>
         <h1 className="mt-4 mb-4 gradient">
           SkyChime - Your Weather Assistant
         </h1>
-        <AppGreeting weatherData={weatherData} />
+        <AppGreeting/>
       </header>
       <AppMain
         weatherData={weatherData}
         handleApiResponse={handleApiResponse}
+        errorStatus={errorStatus}
+        updateErrorStatus={updateErrorStatus}
       />
       <AppFooter />
     </div>
