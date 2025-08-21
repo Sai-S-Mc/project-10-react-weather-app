@@ -1,7 +1,7 @@
 import React from "react";
 
-export default function AppGreeting({ weatherData }) {
-  let date = new Date(weatherData.timestamp * 1000);
+export default function AppGreeting() {
+  let date = new Date();
 
   let days = [
     "Sunday",
