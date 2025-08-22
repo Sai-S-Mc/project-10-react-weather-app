@@ -10,6 +10,7 @@ export default function MainSearchForm({ handleSubmit, captureUserInput }) {
               type="search"
               placeholder="Enter a city name"
               className="search-box"
+              required
               onChange={captureUserInput}
             />
           </div>

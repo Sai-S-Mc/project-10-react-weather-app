@@ -21,11 +21,16 @@ export default function AppMain({
 
   function handleSubmit(event) {
     event.preventDefault();
-    search();
+
+    if (city === "") {
+      alert("Spacebar is not a city yet🚀!");
+    } else {
+      search();
+    }
   }
 
   function captureUserInput(event) {
-    let userInput = event.target.value;
+    let userInput = event.target.value.trim();
     setCity(userInput);
   }
 

@@ -36,7 +36,7 @@ export default function AppFooter() {
           Netlify
         </a>
       </p>
-      <p class="mb-0 pt-4 copyright">
+      <p className="mb-0 pt-4 copyright">
         Copyright ©2025 Sai Satti. All rights reserved.
       </p>
     </div>
