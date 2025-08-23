@@ -4,19 +4,22 @@ import "../styles/AppMain.css";
 import axios from "axios";
 import MainSearchForm from "./MainSearchForm";
 import MainCurrentAndForecast from "./MainCurrentAndForecast";
+import ErrorHandler from "./ErrorHandler";
 
 export default function AppMain({
   weatherData,
   handleApiResponse,
   errorStatus,
   updateErrorStatus,
+  errorType,
+  handleApiError
 }) {
   const [city, setCity] = useState("Victoria");
 
   function search() {
     let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
     let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleApiResponse);
+    axios.get(apiUrl).then(handleApiResponse).catch(handleApiError);
   }
 
   function handleSubmit(event) {
@@ -68,18 +71,11 @@ export default function AppMain({
         <br />
         <br />
         <div className="text-center p-5 error-message">
-          <p>
-            You searched for <strong>{city}</strong>.
-            <br />
-            <br />
-            We sent a weather balloon to find that city… but it came back
-            confused.
-            <br />
-            Mind checking the spelling?
-          </p>
-          <button className="btn mt-2" onClick={updateErrorStatus}>
-            Continue
-          </button>
+          <ErrorHandler
+            city={city}
+            updateErrorStatus={updateErrorStatus}
+            errorType={errorType}
+          />
         </div>
         <br />
         <br />

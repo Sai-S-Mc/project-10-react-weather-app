@@ -6,11 +6,14 @@ import AppGreeting from "./AppGreeting";
 
 export default function App() {
   let [weatherData, setWeatherData] = useState({ apiResponse: false });
-  let [errorStatus, setErrorStatus] = useState(false);
+  let [error, setError] = useState({ status: false });
 
   function handleApiResponse(response) {
     if (response.data.message) {
-      setErrorStatus(true);
+      setError({
+        status: true,
+        type: "not found",
+      });
       return;
     }
 
@@ -30,7 +33,16 @@ export default function App() {
   }
 
   function updateErrorStatus() {
-    setErrorStatus(false);
+    setError({
+      status: false,
+    });
+  }
+
+  function handleApiError() {
+    setError({
+      status: true,
+      type: "api",
+    });
   }
 
   return (
@@ -39,13 +51,15 @@ export default function App() {
         <h1 className="mt-4 mb-4 gradient">
           SkyChime - Your Weather Assistant
         </h1>
-        <AppGreeting/>
+        <AppGreeting />
       </header>
       <AppMain
         weatherData={weatherData}
         handleApiResponse={handleApiResponse}
-        errorStatus={errorStatus}
+        errorStatus={error.status}
+        errorType={error.type}
         updateErrorStatus={updateErrorStatus}
+        handleApiError={handleApiError}
       />
       <AppFooter />
     </div>
