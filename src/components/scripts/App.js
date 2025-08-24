@@ -17,7 +17,6 @@ export default function App() {
       return;
     }
 
-    console.log(response.data);
     setWeatherData({
       apiResponse: true,
       city: response.data.city,
