@@ -80,6 +80,7 @@ export default function MainCurrentAndForecast({ weatherData }) {
           <ErrorHandler
             updateErrorStatus={updateErrorStatus}
             errorType={error.type}
+            weatherType="forecast"
           />
         </div>
         <br />
@@ -104,7 +105,6 @@ export default function MainCurrentAndForecast({ weatherData }) {
   } else {
     let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
     let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${weatherData.city}&key=${apiKey}`;
-    // let forecastApiUrl = `https://api.shcodes.io/weather/v1/forecast?query=${weatherData.city}&key=${apiKey}`;
     axios
       .get(forecastApiUrl)
       .then(handleForecastApiResponse)

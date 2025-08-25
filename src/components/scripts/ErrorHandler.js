@@ -1,11 +1,16 @@
 import React from "react";
 
-export default function ErrorHandler({ errorType, updateErrorStatus, city }) {
+export default function ErrorHandler({
+  errorType,
+  updateErrorStatus,
+  city,
+  weatherType,
+}) {
   let errorMessage;
   if (errorType === "api") {
     errorMessage = (
       <p>
-        Our weather robots are feeling a bit under the weather 🤒
+        Our {weatherType} weather robots are feeling a bit under the weather 🤒
         <br />
         Hang tight, we're working on it!
         <br />

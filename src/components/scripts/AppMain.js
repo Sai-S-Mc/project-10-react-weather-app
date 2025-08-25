@@ -12,7 +12,7 @@ export default function AppMain({
   errorStatus,
   updateErrorStatus,
   errorType,
-  handleApiError
+  handleApiError,
 }) {
   const [city, setCity] = useState("Victoria");
 
