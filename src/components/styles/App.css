@@ -30,6 +30,7 @@ body {
   font-family: "Open Sans", sans-serif;
   margin: 60px auto;
   max-width: 1000px;
+  width: 85%;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.255);
   border-radius: 15px;
 }
@@ -51,7 +52,7 @@ h6 {
 header,
 .Footer {
   text-align: center;
-  padding: 15px 20px;
+  padding: 30px 20px;
   background: linear-gradient(
       rgba(215, 227, 249, 0.75),
       rgba(215, 227, 249, 0.75)
@@ -80,4 +81,11 @@ h6 {
 
 .Main {
   background-color: var(--secondary-color);
+}
+
+@media (max-width: 567px) {
+  header,
+  .Footer {
+    padding: 15px 20px;
+  }
 }
