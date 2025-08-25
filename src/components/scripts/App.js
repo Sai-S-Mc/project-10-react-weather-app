@@ -5,8 +5,8 @@ import AppMain from "./AppMain";
 import AppGreeting from "./AppGreeting";
 
 export default function App() {
-  let [weatherData, setWeatherData] = useState({ apiResponse: false });
-  let [error, setError] = useState({ status: false });
+  const [weatherData, setWeatherData] = useState({ apiResponse: false });
+  const [error, setError] = useState({ status: false });
 
   function handleApiResponse(response) {
     if (response.data.message) {
