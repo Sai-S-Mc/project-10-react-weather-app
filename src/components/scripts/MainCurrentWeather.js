@@ -10,35 +10,71 @@ export default function MainCurrentWeather({
   showCelsius,
   showFahrenheit,
 }) {
-  let fullDate = new Date(forecastToday.time * 1000);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = days[fullDate.getDay()];
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  let month = months[fullDate.getMonth()];
+  let tempMinMaxTag;
+  let dateTag;
 
-  let date = fullDate.getDate();
-  let dateDisplay = `${day}, ${month} ${date}`;
+  function dateDisplay() {
+    let fullDate = new Date(forecastToday.time * 1000);
+    let days = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    let day = days[fullDate.getDay()];
+    let months = [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Aug",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ];
+    let month = months[fullDate.getMonth()];
+
+    let date = fullDate.getDate();
+    return `${day}, ${month} ${date}`;
+  }
+
+  if (forecastToday) {
+    tempMinMaxTag = (
+      <>
+        <li>
+          Today's Low:{" "}
+          <span className="bluish-grey-text">
+            {unit === "metric"
+              ? Math.round(forecastToday.temperature.minimum) + " °C"
+              : Math.round((forecastToday.temperature.minimum * 9) / 5 + 32) +
+                " °F"}
+          </span>{" "}
+        </li>
+        <li>
+          Today's High:{" "}
+          <span className="bluish-grey-text">
+            {unit === "metric"
+              ? Math.round(forecastToday.temperature.maximum) + " °C"
+              : Math.round((forecastToday.temperature.maximum * 9) / 5 + 32) +
+                " °F"}
+          </span>
+        </li>
+      </>
+    );
+
+    dateTag = (
+      <li>
+        <em>{dateDisplay()}</em>
+      </li>
+    );
+  }
 
   let celsiusTag = (
     <span className="unit">
@@ -97,9 +133,7 @@ export default function MainCurrentWeather({
       </div>
       <div className="container-fluid right-float">
         <ul className="mb-0 p-3">
-          <li>
-            <em>{dateDisplay}</em>
-          </li>
+          {dateTag}
           <li className="pt-2 text-capitalize">{weather.description}</li>
           <li>
             Humidity :{" "}
@@ -115,24 +149,7 @@ export default function MainCurrentWeather({
                 : Math.round(weather.windSpeed * 2.237) + " miles/h"}
             </span>
           </li>
-          <li>
-            Today's Low:{" "}
-            <span className="bluish-grey-text">
-              {unit === "metric"
-                ? Math.round(forecastToday.temperature.minimum) + " °C"
-                : Math.round((forecastToday.temperature.minimum * 9) / 5 + 32) +
-                  " °F"}
-            </span>{" "}
-          </li>
-          <li>
-            Today's High:{" "}
-            <span className="bluish-grey-text">
-              {unit === "metric"
-                ? Math.round(forecastToday.temperature.maximum) + " °C"
-                : Math.round((forecastToday.temperature.maximum * 9) / 5 + 32) +
-                  " °F"}
-            </span>
-          </li>
+          {tempMinMaxTag}
         </ul>
       </div>
     </div>
