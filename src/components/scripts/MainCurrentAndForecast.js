@@ -47,44 +47,33 @@ export default function MainCurrentAndForecast({ weatherData }) {
     });
   }
 
+  let forecastDisplay;
+
   if (!error.status) {
     if (forecastApiResponse) {
-      return (
-        <>
-          <MainCurrentWeather
-            weather={weatherData}
-            forecastToday={forecastToday}
-            unit={unit}
-            showCelsius={showCelsius}
-            showFahrenheit={showFahrenheit}
-          />
-          <MainForecast
-            forecastApiResponse={forecastApiResponse}
-            forecastArray={forecastArray}
-            unit={unit}
-          />
-        </>
+      forecastDisplay = (
+        <MainForecast
+          forecastApiResponse={forecastApiResponse}
+          forecastArray={forecastArray}
+          unit={unit}
+        />
       );
     } else {
-      let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
-      let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${weatherData.city}&key=${apiKey}`;
-      axios
-        .get(forecastApiUrl)
-        .then(handleForecastApiResponse)
-        .catch(handleApiError);
-
-      return (
-        <div className="text-center Forecast">
-          <div className="text-center pb-3 pt-3 loading">
+      forecastDisplay = (
+        <div className="Forecast ps-0 pe-0">
+          <br />
+          <br />
+          <div className="text-center p-5 loading">
             Loading forecast for {weatherData.city}...
           </div>
+          <br />
           <br />
         </div>
       );
     }
   } else {
-    return (
-      <div className="Main">
+    forecastDisplay = (
+      <div className="Forecast ps-0 pe-0">
         <br />
         <br />
         <div className="text-center p-5 error-message">
@@ -96,6 +85,42 @@ export default function MainCurrentAndForecast({ weatherData }) {
         <br />
         <br />
       </div>
+    );
+  }
+
+  if (forecastApiResponse) {
+    return (
+      <>
+        <MainCurrentWeather
+          weather={weatherData}
+          forecastToday={forecastToday}
+          unit={unit}
+          showCelsius={showCelsius}
+          showFahrenheit={showFahrenheit}
+        />
+        {forecastDisplay}
+      </>
+    );
+  } else {
+    let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
+    let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${weatherData.city}&key=${apiKey}`;
+    // let forecastApiUrl = `https://api.shcodes.io/weather/v1/forecast?query=${weatherData.city}&key=${apiKey}`;
+    axios
+      .get(forecastApiUrl)
+      .then(handleForecastApiResponse)
+      .catch(handleApiError);
+
+    return (
+      <>
+        <MainCurrentWeather
+          weather={weatherData}
+          forecastToday={forecastToday}
+          unit={unit}
+          showCelsius={showCelsius}
+          showFahrenheit={showFahrenheit}
+        />
+        {forecastDisplay}
+      </>
     );
   }
 }
