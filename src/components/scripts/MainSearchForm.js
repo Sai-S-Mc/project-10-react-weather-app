@@ -21,11 +21,25 @@ export default function MainSearchForm({ handleSubmit, captureUserInput }) {
           </div>
         </div>
       </form>
-      <div className="text-center tip ">
+      <details className="tip">
+        <summary>Search Tip</summary>
+        <p className="tip">
+          When searching for namesake towns or cities, enter the name followed
+          by the province/state, and the country, each separated by commas.
+          <br />
+          <span>
+            For example, London, Ontario, Canada.
+          </span>
+          <br />
+          If you search for 'London' alone, you'll see results for London,
+          United Kingdom.
+        </p>
+      </details>
+      {/* <div className="text-center tip ">
         Tip : When searching for namesake towns or cities, enter the name
         followed by the province/state, and the country, each separated by
         commas. For example, London, Ontario, Canada.
-      </div>
+      </div> */}
     </div>
   );
 }
