@@ -36,12 +36,14 @@ export default function AppGreeting() {
   let amOrPm = currentHour >= 12 && currentHour < 24 ? "PM" : "AM";
 
   let greeting;
-  if (currentHour >= 5 && currentHour < 12) {
-    greeting = "Morning";
-  } else if (currentHour >= 12 && currentHour < 17) {
-    greeting = "Afternoon";
-  } else if (currentHour >= 17 && currentHour < 21) {
-    greeting = "Evening";
+  if (currentHour >= 5 && currentHour < 21) {
+    if (currentHour < 12) {
+      greeting = "Morning";
+    } else if (currentHour < 17) {
+      greeting = "Afternoon";
+    } else {
+      greeting = "Evening";
+    }
   } else {
     greeting = "Night";
   }
