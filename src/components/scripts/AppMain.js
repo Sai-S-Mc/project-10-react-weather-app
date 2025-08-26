@@ -25,10 +25,10 @@ export default function AppMain({
   function handleSubmit(event) {
     event.preventDefault();
 
-    if (city === "") {
-      alert("Spacebar is not a city yet🚀!");
-    } else {
+    if (city) {
       search();
+    } else {
+      alert("Spacebar is not a city yet🚀!");
     }
   }
 
@@ -37,49 +37,55 @@ export default function AppMain({
     setCity(userInput);
   }
 
-  if (errorStatus === false) {
-    if (weatherData.apiResponse) {
-      return (
-        <div className="Main">
-          <MainSearchForm
-            captureUserInput={captureUserInput}
-            handleSubmit={handleSubmit}
-          />
-          <MainCurrentAndForecast weatherData={weatherData} />
-        </div>
-      );
-    } else {
-      search();
+  let searchForm = (
+    <MainSearchForm
+      captureUserInput={captureUserInput}
+      handleSubmit={handleSubmit}
+    />
+  );
 
+  function mainSection() {
+    if (!errorStatus) {
+      if (weatherData.apiResponse) {
+        return (
+          <>
+            {searchForm}
+            <MainCurrentAndForecast weatherData={weatherData} />
+          </>
+        );
+      } else {
+        search();
+
+        return (
+          <>
+            {searchForm}
+            <div className="text-center pb-3 pt-3 loading">
+              Loading weather for {city}
+            </div>
+            <br />
+            <br />
+          </>
+        );
+      }
+    } else {
       return (
-        <div className="Main">
-          <MainSearchForm
-            captureUserInput={captureUserInput}
-            handleSubmit={handleSubmit}
-          />
-          <div className="text-center pb-3 pt-3 loading">
-            Loading weather for {city}
+        <>
+          <br />
+          <br />
+          <div className="text-center p-5 error-message">
+            <ErrorHandler
+              city={city}
+              updateErrorStatus={updateErrorStatus}
+              errorType={errorType}
+            />
           </div>
           <br />
           <br />
-        </div>
+        </>
       );
     }
-  } else {
-    return (
-      <div className="Main">
-        <br />
-        <br />
-        <div className="text-center p-5 error-message">
-          <ErrorHandler
-            city={city}
-            updateErrorStatus={updateErrorStatus}
-            errorType={errorType}
-          />
-        </div>
-        <br />
-        <br />
-      </div>
-    );
   }
+
+
+  return <div className="Main">{mainSection()}</div>;
 }
