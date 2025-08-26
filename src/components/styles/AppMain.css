@@ -59,6 +59,12 @@ form {
   font-size: small;
   font-style: italic;
   color: var(--muted-text);
+  background-color: var(--primary-color);
+  width: fit-content;
+}
+
+.tip li{
+  list-style: circle;
 }
 
 .CurrentWeather,
