@@ -6,16 +6,18 @@ import ErrorHandler from "./ErrorHandler";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function MainCurrentAndForecast({ weatherData }) {
-  const [forecastApiResponse, setForecastApiResponse] = useState(false);
-  const [forecastArray, setForecastArray] = useState(null);
-  const [forecastToday, setForecastToday] = useState(null);
+  const [forecast, setForecast] = useState({
+    apiResponse: false,
+  });
   const [unit, setUnit] = useState("metric");
   const [error, setError] = useState({
     status: false,
   });
 
   useEffect(() => {
-    setForecastApiResponse(false);
+    setForecast({
+      apiResponse: false,
+    });
   }, [weatherData.city]);
 
   function showFahrenheit(event) {
@@ -29,9 +31,11 @@ export default function MainCurrentAndForecast({ weatherData }) {
   }
 
   function handleForecastApiResponse(response) {
-    setForecastApiResponse(true);
-    setForecastArray(response.data.daily);
-    setForecastToday(response.data.daily[0]);
+    setForecast({
+      apiResponse: true,
+      future: response.data.daily,
+      today: response.data.daily[0],
+    });
   }
 
   function handleApiError() {
@@ -47,80 +51,71 @@ export default function MainCurrentAndForecast({ weatherData }) {
     });
   }
 
-  let forecastDisplay;
-
-  if (!error.status) {
-    if (forecastApiResponse) {
-      forecastDisplay = (
-        <MainForecast
-          forecastApiResponse={forecastApiResponse}
-          forecastArray={forecastArray}
-          unit={unit}
-        />
-      );
-    } else {
-      forecastDisplay = (
-        <div className="Forecast ps-0 pe-0">
-          <br />
-          <br />
-          <div className="text-center p-5 loading">
-            Loading forecast for {weatherData.city}...
-          </div>
-          <br />
-          <br />
-        </div>
-      );
-    }
-  } else {
-    forecastDisplay = (
-      <div className="Forecast ps-0 pe-0">
-        <br />
-        <br />
-        <div className="text-center p-5 error-message">
-          <ErrorHandler
-            updateErrorStatus={updateErrorStatus}
-            errorType={error.type}
-            weatherType="forecast"
-          />
-        </div>
-        <br />
-        <br />
-      </div>
-    );
-  }
-
-  if (forecastApiResponse) {
-    return (
-      <>
-        <MainCurrentWeather
-          weather={weatherData}
-          forecastToday={forecastToday}
-          unit={unit}
-          showCelsius={showCelsius}
-          showFahrenheit={showFahrenheit}
-        />
-        {forecastDisplay}
-      </>
-    );
-  } else {
+  function makeForecastApiCall() {
     let apiKey = "tbfob32e017e01391b34fe15b81ad2a6";
     let forecastApiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${weatherData.city}&key=${apiKey}`;
     axios
       .get(forecastApiUrl)
       .then(handleForecastApiResponse)
       .catch(handleApiError);
-
-    return (
-      <>
-        <MainCurrentWeather
-          weather={weatherData}
-          forecastToday={forecastToday}
-          unit={unit}
-          showCelsius={showCelsius}
-          showFahrenheit={showFahrenheit}
-        />
-        {forecastDisplay}
-      </>
-    );
   }
+
+  function forecastDisplay() {
+    let forecastSection;
+    if (!error.status) {
+      if (forecast.apiResponse) {
+        forecastSection = (
+          <MainForecast
+            forecastApiResponse={forecast.apiResponse}
+            forecastArray={forecast.future}
+            unit={unit}
+          />
+        );
+      } else {
+        makeForecastApiCall();
+
+        forecastSection = (
+          <div className="Forecast ps-0 pe-0">
+            <br />
+            <br />
+            <div className="text-center p-5 loading">
+              Loading forecast for {weatherData.city}...
+            </div>
+            <br />
+            <br />
+          </div>
+        );
+      }
+    } else {
+      forecastSection = (
+        <div className="Forecast ps-0 pe-0">
+          <br />
+          <br />
+          <div className="text-center p-5 error-message">
+            <ErrorHandler
+              updateErrorStatus={updateErrorStatus}
+              errorType={error.type}
+              weatherType="forecast"
+            />
+          </div>
+          <br />
+          <br />
+        </div>
+      );
+    }
+    return forecastSection;
+  }
+
+  return (
+    <>
+      <MainCurrentWeather
+        weather={weatherData}
+        forecastToday={forecast.today}
+        unit={unit}
+        showCelsius={showCelsius}
+        showFahrenheit={showFahrenheit}
+      />
+      {forecastDisplay()}
+    </>
+  );
 }
