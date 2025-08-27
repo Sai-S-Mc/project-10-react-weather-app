@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/MainCurrentWeather.css";
 import WeatherIcon from "./WeatherIcon";
 import "bootstrap/dist/css/bootstrap.min.css";
+import DisplayTemperature from "./DisplayTemperature";
 
 export default function MainCurrentWeather({
   weather,
@@ -50,21 +51,17 @@ export default function MainCurrentWeather({
       <>
         <li>
           Today's Low:{" "}
-          <span className="bluish-grey-text">
-            {unit === "metric"
-              ? Math.round(forecastToday.temperature.minimum) + " °C"
-              : Math.round((forecastToday.temperature.minimum * 9) / 5 + 32) +
-                " °F"}
-          </span>{" "}
+          <DisplayTemperature
+            unit="metric"
+            temp={forecastToday.temperature.minimum}
+          />
         </li>
         <li>
           Today's High:{" "}
-          <span className="bluish-grey-text">
-            {unit === "metric"
-              ? Math.round(forecastToday.temperature.maximum) + " °C"
-              : Math.round((forecastToday.temperature.maximum * 9) / 5 + 32) +
-                " °F"}
-          </span>
+          <DisplayTemperature
+            unit="metric"
+            temp={forecastToday.temperature.maximum}
+          />
         </li>
       </>
     );
