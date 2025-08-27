@@ -3,7 +3,7 @@ import React from "react";
 export default function MainSearchForm({ handleSubmit, captureUserInput }) {
   return (
     <div className="search-wrapper">
-      <form className="mb-4 mt-4" onSubmit={handleSubmit}>
+      <form className="mb-4 mt-2" onSubmit={handleSubmit}>
         <details className="tip mb-4 p-2 ps-3 pe-3 rounded shadow ">
           <summary>Search Tip</summary>
           <ul className="tip m-2 mt-0 p-3 rounded shadow">
