@@ -52,15 +52,17 @@ export default function MainCurrentWeather({
         <li>
           Today's Low:{" "}
           <DisplayTemperature
-            unit="metric"
+            unit={unit}
             temp={forecastToday.temperature.minimum}
+            className="bluish-grey-text"
           />
         </li>
         <li>
           Today's High:{" "}
           <DisplayTemperature
-            unit="metric"
+            unit={unit}
             temp={forecastToday.temperature.maximum}
+            className="bluish-grey-text"
           />
         </li>
       </>
@@ -108,21 +110,22 @@ export default function MainCurrentWeather({
           <span className="icon">
             <WeatherIcon iconName={weather.icon} size={60} />
           </span>{" "}
-          <span className="temperature">
-            {unit === "metric"
-              ? Math.round(weather.temperature)
-              : Math.round((weather.temperature * 9) / 5 + 32)}
-          </span>{" "}
+          <DisplayTemperature
+            unit={unit}
+            temp={weather.temperature}
+            className="temperature"
+            noUnit = {true}
+          />
           {unit === "metric" ? celsiusTag : fahrenheitTag}
         </div>
         <div className="text-center">
           <div>
             Feels like :{" "}
-            <span className="bluish-grey-text">
-              {unit === "metric"
-                ? Math.round(weather.realFeel) + " °C"
-                : Math.round((weather.realFeel * 9) / 5 + 32) + " °F"}
-            </span>
+            <DisplayTemperature
+              unit={unit}
+              temp={weather.realFeel}
+              className="bluish-grey-text"
+            />
           </div>
           <div className="mt-3 country">{weather.country}</div>
         </div>
