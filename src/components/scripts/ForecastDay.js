@@ -1,34 +1,11 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import DisplayTemperature from "./DisplayTemperature";
 
 export default function ForecastDay({ forecastDailyData, unit }) {
   let date = new Date(forecastDailyData.time * 1000);
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   let day = days[date.getDay()];
-
-  function forecastDailyMax() {
-    if (unit === "metric") {
-      let max = Math.round(forecastDailyData.temperature.maximum);
-      return max;
-    } else {
-      let max = Math.round(
-        (forecastDailyData.temperature.maximum * 9) / 5 + 32
-      );
-
-      return max;
-    }
-  }
-  function forecastDailyMin() {
-    if (unit === "metric") {
-      let min = Math.round(forecastDailyData.temperature.minimum);
-      return min;
-    } else {
-      let min = Math.round(
-        (forecastDailyData.temperature.minimum * 9) / 5 + 32
-      );
-      return min;
-    }
-  }
 
   return (
     <div className="col-md">
@@ -40,8 +17,19 @@ export default function ForecastDay({ forecastDailyData, unit }) {
         <br />
         <br />
         <div className="daily-high-low">
-          <strong>{forecastDailyMax()} </strong>
-          {forecastDailyMin()}
+          <strong>
+            {" "}
+            <DisplayTemperature
+              temp={forecastDailyData.temperature.maximum}
+              unit={unit}
+              displayUnit = {false}
+            />
+          </strong>
+          <DisplayTemperature
+            temp={forecastDailyData.temperature.minimum}
+            unit={unit}
+            displayUnit = {false}
+          />
         </div>
       </div>
     </div>

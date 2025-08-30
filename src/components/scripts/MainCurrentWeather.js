@@ -114,7 +114,7 @@ export default function MainCurrentWeather({
             unit={unit}
             temp={weather.temperature}
             className="temperature"
-            noUnit = {true}
+            displayUnit = {false}
           />
           {unit === "metric" ? celsiusTag : fahrenheitTag}
         </div>

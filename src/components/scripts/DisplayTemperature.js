@@ -1,15 +1,20 @@
 import React from "react";
 
-export default function DisplayTemperature({ temp, unit, className, noUnit }) {
+export default function DisplayTemperature({
+  temp,
+  unit,
+  className,
+  displayUnit,
+}) {
   function determineUnit() {
-    if (!noUnit) {
+    if (displayUnit === false) {
+      return "";
+    } else {
       if (unit === "metric") {
         return " °C";
       } else {
         return " °F";
       }
-    } else {
-      return "";
     }
   }
 
@@ -23,7 +28,7 @@ export default function DisplayTemperature({ temp, unit, className, noUnit }) {
 
   return (
     <span className={className}>
-     {Math.round(calculateTemp()) + determineUnit()}
+      {Math.round(calculateTemp()) + determineUnit()}
     </span>
   );
 }
