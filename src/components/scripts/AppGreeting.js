@@ -60,8 +60,8 @@ export default function AppGreeting() {
 
   return (
     <div>
-      <h6 className="gradient">Good {greeting}!</h6>
-      <h6 className="mb-4 gradient">{dateDisplay}</h6>
+      <h2 className="gradient">Good {greeting}!</h2>
+      <h2 className="mb-4 gradient">{dateDisplay}</h2>
     </div>
   );
 }

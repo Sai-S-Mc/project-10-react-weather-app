@@ -71,12 +71,13 @@ header {
 }
 
 h1,
-h6 {
+h2 {
   background: var(--primary-gradient);
 }
 
-h6 {
+h2 {
   margin: 10px auto;
+  font-size: 16px !important;
 }
 
 .Main {
